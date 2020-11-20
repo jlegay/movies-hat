@@ -1,0 +1,15 @@
+<div class="container">
+  <%= @hat.name %>
+
+  <% @hat.movies.each do |movie| %>
+    <%= movie.name %>
+  <% end %>
+
+  <%= simple_form_for [ @hat, @movie] do |f| %>
+    <%= f.input :name %>
+    <%= f.submit "Add" %>
+  <% end %>
+
+<%= link_to "Pick a movie", hat_pick_a_movie_path(@hat) %>
+
+</div>

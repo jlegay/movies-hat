@@ -1,0 +1,7 @@
+<div class="container">
+<% @hats.each do |hat| %>
+  <%= hat.name %>
+<% end %>
+
+<%= link_to "Créer un nouveau chapeau", new_hat_path %>
+</div>
