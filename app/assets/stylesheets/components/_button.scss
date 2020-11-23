@@ -1,0 +1,51 @@
+.button {
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  &:hover {
+    text-decoration: none;
+    transition-duration: 0.7s;
+  }
+}
+
+
+.full-primary-button {
+  background-color: #07BEB8;
+  border: 0.5px solid #07BEB8;
+
+  &:hover {
+    background-color: white;
+    color: #07BEB8;
+    border: 0.5px solid #07BEB8;
+  }
+}
+
+.secondary-button {
+  background-color: #25283D;
+
+  &:hover {
+    background-color: white;
+    color: #25283D;
+    border: 0.5px solid #25283D;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+
+}
+
+.empty-primary-button {
+  background-color: white;
+  color: #07BEB8;
+  border: 0.5px solid #07BEB8;
+
+  &:hover {
+    background-color: #07BEB8;
+    border: 0.5px solid #07BEB8;
+    color: white;
+    transition-duration: 0.7s;
+  }
+}

@@ -2,6 +2,7 @@ class HatsController < ApplicationController
 
   def index
     @hats = Hat.all
+    @hat = Hat.new
   end
 
   def show
@@ -32,7 +33,7 @@ class HatsController < ApplicationController
   private
 
   def hat_params
-    params.require(:hat).permit(:user_id, :name)
+    params.require(:hat).permit(:name, :photo)
   end
 
 end

@@ -1,7 +1,30 @@
-<div class="container">
-<% @hats.each do |hat| %>
-  <%= hat.name %>
-<% end %>
-
-<%= link_to "Créer un nouveau chapeau", new_hat_path %>
+<div class="banner">
+  <div class="container">
+    <h1>Trouver un film à regarder en le tirant au sort !</h1>
+    <div class="button-container">
+      <a class="button full-primary-button" href="#">Trouver un film !</a>
+    </div>
+  </div>
 </div>
+  <div class="container">
+  <div class="container-cards mt-3">
+    <% @hats.each do |hat| %>
+      <div class="card">
+        <div class="card-txt-img">
+          <%= cl_image_tag hat.photo.key, crop: :fill, class: "card-img" %>
+          <div class="card-content">
+            <h2 class="title"><%= hat.name %></h2>
+            <div class="button-container">
+              <%= link_to "Voir le chapeau", hat_path(hat), class: "button secondary-button" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<div class="button-container">
+  <%= link_to "Créer un nouveau chapeau", new_hat_path, class: "button empty-primary-button", id: "new-hat-button" %>
+</div>
+
+
