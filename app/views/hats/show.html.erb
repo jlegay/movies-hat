@@ -1,16 +1,33 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @hat.photo.key, height: 300, width: 400, crop: :fill %>');">
+  <div class="container">
+    <h1><%= @hat.name %></h1>
+    <%= link_to "Trouver un film", hat_pick_a_movie_path(@hat), class: "button full-primary-button" %>
+  </div>
+</div>
 <div class="container">
-  <%= @hat.name %>
-
-  <% @hat.movies.each do |movie| %>
-    <%= movie.name %>
+  <% if @hat.movies.length > 0 %>
+    <h4>Les derniers films ajoutés :</h4>
+    <div class="movie-cards-container">
+      <% @hat.movies.each do |movie| %>
+        <% if movie.photo.attached? %>
+          <div class="movie-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path movie.photo.key, height: 300, width: 400, crop: :fill %>');">
+            <p><%= movie.name %></p>
+          </div>
+        <% else %>
+          <div class="movie-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://cdn.pixabay.com/photo/2015/07/02/10/07/audience-828584_960_720.jpg');">
+            <p><%= movie.name %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   <% end %>
 
-  <%= simple_form_for [ @hat, @movie] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit "Add" %>
-  <% end %>
-
-<%= link_to "Pick a movie", hat_pick_a_movie_path(@hat) %>
+  <div class="form-container">
+    <%= simple_form_for [ @hat, @movie], :html=> {class: 'form-content'} do |f|%>
+      <%= f.input :name, placeholder: 'Citizen Kane' %>
+      <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter une photo'  %>
+      <%= f.submit "Ajouter", class: 'button empty-primary-button' %>
+    <% end %>
+  </div>
 
 </div>

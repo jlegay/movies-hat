@@ -27,3 +27,20 @@
     transition-duration: 0.5s;
   }
 }
+
+.movie-card {
+  background-size: cover;
+  background-position: center;
+  width: 200px;
+  height: 200px;
+  border: 2px solid #07BEB8;
+  border-radius: 200px;
+  text-align: center;
+  line-height: 200px;
+  white-space: nowrap;
+  p {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
