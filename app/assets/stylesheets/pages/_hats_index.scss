@@ -2,13 +2,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 40px;
+  margin-bottom: 2rem;
 }
 
-#new-hat-button {
-  position:fixed;
-  bottom:1%;
-  z-index:9999;
-}
+// #new-hat-button {
+//   position:fixed;
+//   bottom:110px;
+//   z-index:9999;
+// }
 
 
 // Smallest device

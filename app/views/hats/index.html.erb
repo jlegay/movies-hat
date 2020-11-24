@@ -13,7 +13,7 @@
         <div class="card-txt-img">
           <%= cl_image_tag hat.photo.key, crop: :fill, class: "card-img" %>
           <div class="card-content">
-            <h2 class="title"><%= hat.name %></h2>
+            <h2 class="card-title"><%= hat.name %></h2>
             <div class="button-container">
               <%= link_to "Voir le chapeau", hat_path(hat), class: "button secondary-button" %>
             </div>

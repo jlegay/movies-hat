@@ -1,8 +1,9 @@
 <div class="container">
   <div class="form-container">
-    <%= simple_form_for (@hat) do |f| %>
+    <%= simple_form_for (@hat), :html=> {class: 'form-content'} do |f| %>
       <%= f.input :name, label: 'Nom du chapeau', placeholder: 'Chapi Chapo' %>
-      <%= f.input :photo, as: :file %>
+      <%#= f.input :photo, as: :file %>
+      <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter une photo' %>
       <%= f.button :submit, 'Créer', class: 'button full-primary-button' %>
     <% end %>
   </div>
