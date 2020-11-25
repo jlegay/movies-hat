@@ -1,12 +1,14 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @hat.photo.key, height: 300, width: 400, crop: :fill %>');">
   <div class="container">
     <h1><%= @hat.name %></h1>
-    <%= link_to "Trouver un film", hat_pick_a_movie_path(@hat), class: "button full-primary-button" %>
+    <div class="button-container">
+      <%= link_to "Pick a movie", hat_pick_a_movie_path(@hat), class: "button full-primary-button" %>
+    </div>
   </div>
 </div>
 <div class="container">
   <% if @hat.movies.length > 0 %>
-    <h4>Les derniers films ajoutés :</h4>
+    <h4 id="title-movie-cards">Last added movies</h4>
     <div class="movie-cards-container">
       <% @hat.movies.each do |movie| %>
         <% if movie.photo.attached? %>
@@ -20,13 +22,16 @@
         <% end %>
       <% end %>
     </div>
+  <% else %>
+    No movies in this hat. You can add one !
   <% end %>
 
   <div class="form-container">
     <%= simple_form_for [ @hat, @movie], :html=> {class: 'form-content'} do |f|%>
-      <%= f.input :name, placeholder: 'Citizen Kane' %>
-      <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Ajouter une photo'  %>
-      <%= f.submit "Ajouter", class: 'button empty-primary-button' %>
+      <h3>Add a movie</h3>
+      <%= f.input :name, label: 'Title', placeholder: 'Citizen Kane' %>
+      <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Add a picture'  %>
+      <%= f.button :submit, 'Add', class: 'button full-primary-button' %>
     <% end %>
   </div>
 

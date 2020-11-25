@@ -1,4 +1,12 @@
 .movie-cards-container {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 4rem;
+}
+
+#title-movie-cards {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  color: #07BEB8;
+  text-align: center;
 }

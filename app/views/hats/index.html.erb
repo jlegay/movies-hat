@@ -1,8 +1,8 @@
 <div class="banner" id="home-banner">
   <div class="container">
-    <h1>Trouver un film à regarder en le tirant au sort !</h1>
+    <h1>Pick a movie to whatch !</h1>
     <div class="button-container">
-      <a class="button full-primary-button" href="#">Trouver un film !</a>
+      <a class="button full-primary-button" href="#">Pick a movie!</a>
     </div>
   </div>
 </div>
@@ -15,7 +15,7 @@
           <div class="card-content">
             <h2 class="card-title"><%= hat.name %></h2>
             <div class="button-container">
-              <%= link_to "Voir le chapeau", hat_path(hat), class: "button secondary-button" %>
+              <%= link_to "See hat", hat_path(hat), class: "button secondary-button" %>
             </div>
           </div>
         </div>
@@ -24,7 +24,7 @@
   </div>
 
 <div class="button-container">
-  <%= link_to "Créer un nouveau chapeau", new_hat_path, class: "button empty-primary-button", id: "new-hat-button" %>
+  <%= link_to "Create a new hat", new_hat_path, class: "button empty-primary-button", id: "new-hat-button" %>
 </div>
 
 
