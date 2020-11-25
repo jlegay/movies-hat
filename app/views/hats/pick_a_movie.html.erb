@@ -1,5 +1,20 @@
 <div class="container">
-  <h1>And the winner is.....</h1>
-
-  <%= @picked_movie.name %>
+  <div id="winner-container">
+    <h1>AND THE WINNER IS </h1>
+    <div class="movie-cards-container">
+      <% if @picked_movie.photo.attached? %>
+        <div class="movie-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @picked_movie.photo.key, height: 300, width: 400, crop: :fill %>');">
+          <p><%= @picked_movie.name %></p>
+        </div>
+      <% else %>
+        <div class="movie-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://cdn.pixabay.com/photo/2015/07/02/10/07/audience-828584_960_720.jpg');">
+          <p><%= @picked_movie.name %></p>
+        </div>
+      <% end %>
+    </div>
+    <div class="links">
+      <a href="https://www.justwatch.com/fr/recherche?q=<%= @picked_movie.name %>" target="_blank" class="button full-primary-button">Watch it</a>
+      <%= link_to "Pick another one", hat_pick_a_movie_path(@hat), class: "button full-primary-button" %>
+    </div>
+  </div>
 </div>
