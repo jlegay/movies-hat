@@ -2,24 +2,28 @@
   <div class="container">
     <h1>Pick a movie to whatch !</h1>
     <div class="button-container">
-      <%= link_to "Pick a movie", hat_pick_a_movie_path(Hat.first), class: "button full-primary-button" %>
+      <% if Hat.all.length > 0 %>
+        <%= link_to "Pick a movie", hat_pick_a_movie_path(Hat.first), class: "button full-primary-button" %>
+      <% end %>
     </div>
   </div>
 </div>
   <div class="container">
   <div class="container-cards mt-3">
-    <% @hats.each do |hat| %>
-      <div class="card">
-        <div class="card-txt-img">
-          <%= cl_image_tag hat.photo.key, crop: :fill, class: "card-img" %>
-          <div class="card-content">
-            <h2 class="card-title"><%= hat.name %></h2>
-            <div class="button-container">
-              <%= link_to "See hat", hat_path(hat), class: "button secondary-button" %>
+    <% if Hat.all.length > 0 %>
+      <% @hats.each do |hat| %>
+        <div class="card">
+          <div class="card-txt-img">
+            <%= cl_image_tag hat.photo.key, crop: :fill, class: "card-img" %>
+            <div class="card-content">
+              <h2 class="card-title"><%= hat.name %></h2>
+              <div class="button-container">
+                <%= link_to "See hat", hat_path(hat), class: "button secondary-button" %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 
