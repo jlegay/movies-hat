@@ -2,7 +2,7 @@
   <div class="container">
     <h1>Pick a movie to whatch !</h1>
     <div class="button-container">
-      <a class="button full-primary-button" href="#">Pick a movie!</a>
+      <%= link_to "Pick a movie", hat_pick_a_movie_path(Hat.first), class: "button full-primary-button" %>
     </div>
   </div>
 </div>

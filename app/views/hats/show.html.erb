@@ -10,7 +10,7 @@
   <% if @hat.movies.length > 0 %>
     <h4 id="title-movie-cards">Last added movies</h4>
     <div class="movie-cards-container">
-      <% @hat.movies.each do |movie| %>
+      <% @hat.movies.first(5).each do |movie| %>
         <% if movie.photo.attached? %>
           <div class="movie-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path movie.photo.key, height: 300, width: 400, crop: :fill %>');">
             <p><%= movie.name %></p>
@@ -23,7 +23,7 @@
       <% end %>
     </div>
   <% else %>
-    No movies in this hat. You can add one !
+    <p id="no-movie">No movies in this hat. You can add one !</p>
   <% end %>
 
   <div class="form-container">
@@ -34,5 +34,7 @@
       <%= f.button :submit, 'Add', class: 'button full-primary-button' %>
     <% end %>
   </div>
+
+  <%= link_to "← Hat's list", hats_path, class: "back-link" %>
 
 </div>

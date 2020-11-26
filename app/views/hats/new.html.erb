@@ -1,12 +1,13 @@
 <div class="container">
   <div class="form-container">
     <%= simple_form_for (@hat), :html=> {class: 'form-content'} do |f| %>
-      <h3>Creat a hat</h3>
+      <h3>Create a hat</h3>
       <%= f.input :name, label: 'Hat\'s name', placeholder: 'Chapi Chapo' %>
       <%#= f.input :photo, as: :file %>
       <%= f.input :photo, as: :file, input_html: { class: 'd-none' }, label_html: { class: 'upload-photo'}, label: '📷 Add a picture' %>
       <%= f.button :submit, 'Create', class: 'button full-primary-button' %>
     <% end %>
   </div>
+  <%= link_to "← Hat's list", hats_path, class: "back-link" %>
 
 </div>
