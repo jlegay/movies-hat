@@ -17,3 +17,17 @@
   font-size: 22px;
   margin-top: 3rem;
 }
+
+#not-allowed-message {
+  color: #07BEB8;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#banner-not_allowed {
+  background-image: asset-url('santa-hat.jpg');
+}
+
+#not-allowed-back-link {
+  margin-left: 3rem;
+}

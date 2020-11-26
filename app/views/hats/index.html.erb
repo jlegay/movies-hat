@@ -10,8 +10,8 @@
 </div>
   <div class="container">
   <div class="container-cards mt-3">
-    <% if Hat.all.length > 0 %>
-      <% @hats.each do |hat| %>
+    <% if @final_hats.length > 0 %>
+      <% @final_hats.each do |hat| %>
         <div class="card">
           <div class="card-txt-img">
             <%= cl_image_tag hat.photo.key, crop: :fill, class: "card-img" %>

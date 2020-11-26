@@ -2,11 +2,26 @@ class HatsController < ApplicationController
 
   def index
     @hats = Hat.all
+    # @hats = policy_scope(Hat).order(created_at: :desc)
+    @final_hats = []
+    @hats.each do |hat|
+      if hat.user == current_user
+        @final_hats << hat
+      elsif hat.public_visibility?
+        @final_hats << hat
+      end
+    end
     @hat = Hat.new
   end
 
   def show
     @hat = Hat.find(params[:id])
+    @allowed
+    if @hat.user == current_user || @hat.public_visibility?
+      @allowed = true
+    else
+      @allowed = false
+    end
     @movie = Movie.new
   end
 

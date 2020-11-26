@@ -1,3 +1,4 @@
+<% if @allowed == true %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @hat.photo.key, height: 300, width: 400, crop: :fill %>');">
   <div class="container">
     <h1><%= @hat.name %></h1>
@@ -34,7 +35,14 @@
       <%= f.button :submit, 'Add', class: 'button full-primary-button' %>
     <% end %>
   </div>
-
   <%= link_to "← Hat's list", hats_path, class: "back-link" %>
 
 </div>
+<% else %>
+  <div class="banner" id="banner-not_allowed" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../assets/images/admission_coupon.jpg', height: 300, width: 400, crop: :fill %>');">
+    <h1 id="not-allowed-message">Sorry, you are not allowed to see this hat</h1>
+  </div>
+  <br>
+  <br>
+    <%= link_to "← Hat's list", hats_path, class: "back-link", id: "not-allowed-back-link" %>
+<% end %>
